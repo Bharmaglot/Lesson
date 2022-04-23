@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 namespace Geekbrains
 {
-    public abstract class InteractiveObject : MonoBehaviour//, // IInteractable
+    public abstract class InteractiveObject : MonoBehaviour
     {
         public bool IsInteractable { get; } = true;
         protected abstract void Interaction();
@@ -22,30 +22,7 @@ namespace Geekbrains
 
            private void Start()
         {
-            //((IAction)this).Action();
-            // ((IInitialization)this).Action();
+            
         }
-
-        //void IAction.Action()
-        //{
-        //    if (TryGetComponent(out Renderer renderer))
-        //    {
-        //        renderer.material.color = Random.ColorHSV();
-        //    }
-        //}
-
-        //void IInitialization.Action()
-        //{
-        //    if (TryGetComponent(out Renderer renderer))
-        //    {
-        //        renderer.material.color = Color.red;
-        //    }
-        //}
-
-
-        //protected virtual void Interaction()
-        //{
-
-        //}
     }
 }

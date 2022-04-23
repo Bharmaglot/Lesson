@@ -9,6 +9,7 @@ namespace Geekbrains
         private Material _material;
         private float _lenghtFlay;
         private DisplayBonuses _displayBonuses;
+        private int score = 0;
         
 
         private void Awake()
@@ -23,7 +24,8 @@ namespace Geekbrains
 
         protected override void Interaction()
         {
-            _displayBonuses.Display(1);
+            score++;
+            _displayBonuses.Display(score);
         }
 
         public void Flay()
