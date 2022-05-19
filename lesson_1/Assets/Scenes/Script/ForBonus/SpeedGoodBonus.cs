@@ -4,11 +4,13 @@ using UnityEngine;
 
 namespace Geekbrains
 {
-    public sealed class BadBonus : InteractiveObject, IFlay, IRotation
+
+    public class SpeedGoodBonus : InteractiveObject, IFlay, IRotation
     {
+
         private float _lengthFlay;
         private float _speedRotation;
-        private double slowPlayer = 0.5;
+        private int FastPlayer = 2;
         private float Timer = 5;
 
         private void Awake()
@@ -19,7 +21,7 @@ namespace Geekbrains
 
         protected override void Interaction(Player player)
         {
-            player.CorrectSpeedPlayer(Timer, slowPlayer);
+            player.CorrectSpeedPlayer(Timer, FastPlayer);
         }
 
         public void Flay()
@@ -34,5 +36,7 @@ namespace Geekbrains
             transform.Rotate(Vector3.up * (Time.deltaTime * _speedRotation),
                 Space.World);
         }
+
     }
+
 }

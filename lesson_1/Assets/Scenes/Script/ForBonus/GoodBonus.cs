@@ -9,23 +9,22 @@ namespace Geekbrains
         private Material _material;
         private float _lenghtFlay;
         private DisplayBonuses _displayBonuses;
-        private int score = 0;
+        private int score = 1;
         
-
+        
         private void Awake()
         {
             _material = GetComponent<Renderer>().material;
             _lenghtFlay = Random.Range(1.0f, 5.0f);
             _displayBonuses = new DisplayBonuses();
-            _displayBonuses = new DisplayBonuses();
         }
 
 
 
-        protected override void Interaction()
+        protected override void Interaction(Player player)
         {
-            score++;
             _displayBonuses.Display(score);
+            player.PlusScore(score);
         }
 
         public void Flay()
