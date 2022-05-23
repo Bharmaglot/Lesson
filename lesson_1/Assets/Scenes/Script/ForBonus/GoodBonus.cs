@@ -8,7 +8,7 @@ namespace Geekbrains
     {
         private Material _material;
         private float _lenghtFlay;
-        private DisplayBonuses _displayBonuses;
+        //private DisplayBonuses _displayBonuses;
         private int score = 1;
         
         
@@ -16,14 +16,14 @@ namespace Geekbrains
         {
             _material = GetComponent<Renderer>().material;
             _lenghtFlay = Random.Range(1.0f, 5.0f);
-            _displayBonuses = new DisplayBonuses();
+            //_displayBonuses = new DisplayBonuses();
         }
 
 
 
         protected override void Interaction(Player player)
         {
-            _displayBonuses.Display(score);
+            //_displayBonuses.Display(score);
             player.PlusScore(score);
         }
 

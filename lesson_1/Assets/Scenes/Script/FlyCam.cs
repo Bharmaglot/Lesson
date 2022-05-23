@@ -6,74 +6,50 @@ namespace Geekbrains
 {
     public class FlyCam : MonoBehaviour
     {
-        private float _lengthFlay;
+
+        public float _duration = .8f;
+        private Transform _cameraTransform;
+        private Vector3 _originalPosition;
 
 
-        private void Awake()
+        public void Awake()
         {
-            _lengthFlay = Random.Range(1.0f, 5.0f);
+            Player player = GameObject.FindObjectOfType<Player>();
+            player.ObjBadInt += Shake;
+
+
+
+
+            _cameraTransform = GetComponent<Transform>();
+            _originalPosition = _cameraTransform.transform.position;
+
         }
 
-        public void Flay()
+        public void Shake()
         {
-            transform.localPosition = new Vector3(transform.localPosition.x,
-                Mathf.PingPong(Time.time, _lengthFlay),
-                transform.localPosition.z);
+            StartCoroutine(_Shake());
         }
 
+        IEnumerator _Shake()
+        {
 
 
+            float x;
+            float y;
+            float timeLeft = Time.time;
 
+           Vector3 _basePosition = _cameraTransform.transform.position;
 
+            while ((timeLeft + _duration) > Time.time)
+            {
+              x = Random.Range(5.3f, 1.3f);
+              y = Random.Range(13.3f, 11.3f);
 
+                _cameraTransform.position = new Vector3(_basePosition.x+x, y, _basePosition.z); yield return new WaitForSeconds(0.025f);
+            }
+            _cameraTransform.position = _basePosition;
 
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //public float _duration = .8f;
-        //private Transform _cameraTransform;
-        //private Vector3 _originalPosition;
-
-        //void Start()
-        //{
-        //    _cameraTransform = GetComponent<Transform>();
-        //    _originalPosition = _cameraTransform.transform.position;
-        //}
-
-        //public void Shake()
-        //{
-        //    StartCoroutine(_Shake());
-        //}
-
-        //IEnumerator _Shake()
-        //{
-
-        //    float x;
-        //    float y;
-        //    float timeLeft = Time.time;
-
-        //    while ((timeLeft + _duration) > Time.time)
-        //    {
-        //        x = Random.Range(-0.3f, 0.3f);
-        //        y = Random.Range(-0.3f, 0.3f);
-
-        //        _cameraTransform.position = new Vector3(x, y, _originalPosition.z); yield return new WaitForSeconds(0.025f);
-        //    }
-
-        //    _cameraTransform.position = _originalPosition;
-
-        //}
     }
 }

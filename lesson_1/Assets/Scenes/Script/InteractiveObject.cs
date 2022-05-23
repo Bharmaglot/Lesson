@@ -9,8 +9,14 @@ namespace Geekbrains
     {
         protected Color _color;
         public bool IsInteractable { get; } = true;
+
+
+
+
         protected abstract void Interaction(Player player);
         
+
+
         private void OnTriggerEnter(Collider other)
         {
         if(!IsInteractable || !other.CompareTag("Player"))

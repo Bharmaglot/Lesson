@@ -9,9 +9,24 @@ namespace Geekbrains
     {
 
 
+
+
+
+        private Text _text;
+        public int score = 0;
+        public DisplayBonuses()
+        {
+            _text = Object.FindObjectOfType<Text>();
+        }
         public void Display(int value)
         {
-            Debug.Log($"Вы получили: {value}");
+            _text.text = $"Вы набрали {score + value}";
         }
+
+
+        //public void Display(int value)
+        //{
+        //    Debug.Log($"Вы получили: {value}");
+        //}
     }
 }

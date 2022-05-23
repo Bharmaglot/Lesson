@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Geekbrains
 {
+
+    public delegate void ObjBadInteraction();
+
     public class Player : MonoBehaviour
     {
         public float Speed = 3.0f;
@@ -13,13 +16,20 @@ namespace Geekbrains
         private float _bonusSpeed;
         private Coroutine _bonusRoutine;
 
+        private DisplayBonuses _displayBonuses;
 
-        //public delegate void CaugthPlayerChange();
-       // public CaugthPlayerChange CaughtPlayer;
+
+        public event ObjBadInteraction ObjBadInt;
+        private DisplayEndGame _displayEndGame;
+
+
+
+
 
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _displayBonuses = new DisplayBonuses();
 
         }
 
@@ -36,9 +46,10 @@ namespace Geekbrains
         public void PlusScore(int value)
         {
             score = score + value;
+            _displayBonuses.Display(score);
             if (score >= 4)
             {
-                //победный
+                _displayEndGame.GameVictory();
             }
         }
 
@@ -60,11 +71,12 @@ namespace Geekbrains
         }
 
 
-
+       
 
         public void PlayerDamage(int damage)
         {
             hit = hit - damage;
+            ObjBadInt?.Invoke();
             if(hit <= 0)
             {
                 Dead();
@@ -73,7 +85,6 @@ namespace Geekbrains
 
         public void Dead()
         {
-            //CaughtPlayer();
             Destroy(gameObject);
         }
     }

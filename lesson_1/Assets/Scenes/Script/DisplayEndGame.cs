@@ -17,7 +17,7 @@ namespace Geekbrains
 
         public void GameOver(object o, CaughtPlayerEventArgs args)
         {
-            _finishGameLabel.text = $"Вы проиграли. Вас убил {((InteractiveObject)o).name} {args.Color} цвета";
+            _finishGameLabel.text = $"Вы проиграли. Вас убил {((InteractiveObject)o).name}";
         }
 
         public void GameVictory()
