@@ -4,19 +4,25 @@ using UnityEngine;
 
 namespace Geekbrains
 {
+    [ExecuteInEditMode]
     public class Test : MonoBehaviour
     {
-        private void Start()
+        //private void Start()
+        //{
+        //    var tempRenderer = GetComponent<Renderer>();
+        //    if (tempRenderer != null) tempRenderer.material.color = Random.ColorHSV();
+        //}
+
+        [ContextMenuItem("Random Count", nameof(Random))]
+        [SerializeField] private int _count;
+        private void Random()
         {
-            //DelegatesObserver.Sourse s = new DelegatesObserver.Sourse();
-            //DelegatesObserver.Observer1 o1 = new DelegatesObserver.Observer1();
-            //DelegatesObserver.Observer2 o2 = new DelegatesObserver.Observer2();
-            //DelegatesObserver.MyDelegate d1 = new DelegatesObserver.MyDelegate(o1.Do);
-            //s.Add(d1);
-            //s.Add(o2.Do);
-            //s.Run();
-            //s.Remove(o1.Do);
-            //s.Run();
+            _count = UnityEngine.Random.Range(0, 100);
         }
+
+        //[Obsolete("Древнее зло пробудилось")]
+        //private void TestObsolete()
+        //{
+        //}
     }
 }

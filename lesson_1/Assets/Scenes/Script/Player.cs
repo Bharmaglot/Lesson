@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Geekbrains
 {
@@ -49,7 +50,7 @@ namespace Geekbrains
             _displayBonuses.Display(score);
             if (score >= 4)
             {
-                _displayEndGame.GameVictory();
+                SceneManager.LoadScene("Test");
             }
         }
 

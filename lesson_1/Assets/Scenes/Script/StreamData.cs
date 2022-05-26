@@ -21,14 +21,14 @@ namespace Geekbrains
 
             using (var sr = new StreamReader(path))
             {
-                //while (!sr.EndOfStream)
-                //{
-                //    result.Name = sr.ReadLine();
-                //    result.Position.X = sr.ReadLine().TrySingle();
-                //    result.Position.Y = sr.ReadLine().TrySingle();
-                //    result.Position.Z = sr.ReadLine().TrySingle();
-                //    result.IsEnabled = sr.ReadLine().TryBool();
-                //}
+                while (!sr.EndOfStream)
+                {
+                    //result.Name = sr.ReadLine();
+                    //result.Position.X = sr.ReadLine().TrySingle();
+                    //result.Position.Y = sr.ReadLine().TrySingle();
+                    //result.Position.Z = sr.ReadLine().TrySingle();
+                    //result.IsEnabled = sr.ReadLine().TryBool();
+                }
             }
             return result;
         }
