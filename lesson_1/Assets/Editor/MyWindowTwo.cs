@@ -12,7 +12,7 @@ namespace Geekbrains
             var button = GUILayout.Button("Некоторое действие");
             if (button)
             {
-                //Пока нет идей. Пойду долги поделаю. :)
+                //Как бы сюда вставить выбор интефейса?
             }
         }
     }
